@@ -13,8 +13,9 @@
 
   <body>
     <%= render partial: "layouts/header" %>
-    <main class="m-1 p-6 flex">
+    <main class="m-1 p-6">
       <%= yield %>
     </main>
+    <%= render partial: "layouts/footer" %>
   </body>
 </html>
