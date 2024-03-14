@@ -1,0 +1,22 @@
+<% if @user.persisted? %>
+  <turbo-stream action="remove" target="new-registration">
+  </turbo-stream>
+
+  <turbo-stream action="replace" target="new-registration-feedback">
+    <template>
+      <div class="success-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">You're registered!</strong>
+      </div>
+    </template>
+  </turbo-stream>
+<% else %>
+  <turbo-stream action="update" target="new-registration-feedback">
+    <template>
+      <div class="error-message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">
+          <%= @user.errors.full_messages.join(", ") %>
+        </strong>
+      </div>
+    </template>
+  </turbo-stream>
+<% end -%>

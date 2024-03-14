@@ -1,0 +1,18 @@
+<turbo-frame id="new-post-feedback">
+</turbo-frame>
+
+<div class="w-1/3">
+  <%= form_with scope: :post, url: posts_path do |form| %>
+    <%= form.label :body, class: "sr-only" %>
+    <%= form.text_area :body, placeholder: "Enter your text", class: "textarea-input", required: true %>
+    <%= form.submit 'Post!', class: "btn-submit" %>
+  <% end %>
+</div>
+
+<div class="w-full">
+  <turbo-frame id="posts" class="flex flex-wrap justify-center gap-4 p-5">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </turbo-frame>
+</div>
